@@ -18,9 +18,9 @@ log(value: any)
     value: Значение для записи в журнал.
 ```
 ```js
-sound(mp3SoundPath: str)
-    Воспроизводит звук, указанный в строке.
-    mp3SoundPath: Путь к mp3.
+playMp3(mp3_path: str)
+    Воспроизводит mp3 файл по указанному пути.
+    mp3_path: Путь к mp3.
 ```
 ```js
 randomInt() -> int 
