@@ -34,12 +34,12 @@ randomIntR(min: int, max: int) -> int
 ```
 ```js
 cmd(commands: str) -> str 
-    Выполнить комнады в консоли Windows.
+    Выполнить комнады в консоли windows.
     Возвращает текст после выполнения.
 ```
 ```js
 cmdD(commands: str)
-    Выполнить комнады в консоли Windows в фоновом режиме detached (multiprocess).
+    Выполнить комнады в консоли windows в фоновом режиме detached (multiprocess).
 ```
 
 ### Клавиатура и мышь
