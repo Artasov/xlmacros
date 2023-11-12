@@ -23,13 +23,23 @@ sound(mp3SoundPath: str)
     mp3SoundPath: Путь к mp3.
 ```
 ```js
-randomInt() Случайное целое число
+randomInt() -> int 
+    Возвращает случайное целое число.
 ```
 ```js
-randomIntR(min: int, max: int)
-    Случайное целое число в диапозоне.
+randomIntR(min: int, max: int) -> int 
+    Возвращает случайное целое число в диапозоне.
     min: Нижняя граница.
     max: Верхняя граница.
+```
+```js
+cmd(commands: str) -> str 
+    Выполнить комнады в консоли Windows.
+    Возвращает текст после выполнения.
+```
+```js
+cmdD(commands: str)
+    Выполнить комнады в консоли Windows в фоновом режиме detached (multiprocess).
 ```
 
 ### Клавиатура и мышь
@@ -148,13 +158,13 @@ waitImage(
     accuracy: уровень точности поиска изображения 0.00 <= accuracy <= 1.00.
 ```
 ```js
-findImage(image_path: str, accuracy: float)
+findImage(image_path: str, accuracy: float) -> Point(x, y)
     Ищет изображение на экране и возвращает координаты его центра.
     image_path: путь к изображению.
     accuracy: уровень точности поиска изображения 0.00 <= accuracy <= 1.00.
 ```
 ```js
-findImageC(image_path: str, accuracy: float)
+findImageC(image_path: str, accuracy: float) -> Point(x, y)
     Ищет изображение на текущем активном окне и возвращает координаты 
     его центра.
     image_path: путь к изображению.
@@ -164,7 +174,7 @@ findImageC(image_path: str, accuracy: float)
 findImageW(
     image_path: str, check_interval: int, 
     timeout: int, accuracy: float
-)
+) -> Point(x, y)
     Ищет изображение на экране в течение заданного времени и возвращает 
     координаты его центра.
     image_path: путь к изображению.
@@ -176,7 +186,7 @@ findImageW(
 findImageWC(
     image_path: str, check_interval: int, 
     timeout: int, accuracy: float
-)
+) -> Point(x, y)
     Ищет изображение на текущем активном окне в течение заданного 
     времени и возвращает координаты его центра.
     image_path: путь к изображению.
@@ -185,21 +195,21 @@ findImageWC(
     accuracy: уровень точности поиска изображения 0.00 <= accuracy <= 1.00.
 ```
 ```js
-findImages(image_path: str, accuracy: float)
+findImages(image_path: str, accuracy: float) -> Point(x, y)
     Ищет все экземпляры указанного изображения на экране и 
     возвращает их координаты.
     image_path: путь к изображению.
     accuracy: уровень точности поиска изображений 0.00 <= accuracy <= 1.00.
 ```
 ```js
-findImagesC(image_path: str, accuracy: float)
+findImagesC(image_path: str, accuracy: float) -> Point(x, y)
     Ищет все экземпляры указанного изображения на текущем активном 
     окне и возвращает их координаты.
     image_path: путь к изображению.
     accuracy: уровень точности поиска изображений 0.00 <= accuracy <= 1.00.
 ```
 ```js
-findColor(color: str, accuracy: float)
+findColor(color: str, accuracy: float) -> Point(x, y)
     Ищет указанный цвет на экране и возвращает координаты его 
     первого вхождения.
     color: искомый цвет в формате строки.
