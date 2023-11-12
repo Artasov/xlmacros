@@ -19,7 +19,7 @@ log(value: any)
 ```
 ```js
 playMp3(mp3_path: str)
-    Воспроизводит mp3 файл по указанному пути.
+    Воспроизводит mp3 файл по указанному абсолютному пути.
     mp3_path: Путь к mp3.
 ```
 ```js
@@ -39,6 +39,11 @@ cmd(commands: str) -> str
 ```js
 cmdD(commands: str)
     Выполняет комнады в консоли windows в фоновом режиме detached (multiprocess).
+```
+```js
+saveScreen(save_path: str)
+    Сохраняет скриншот всех экранов в файл.
+    save_path: Пусть для сохранения.
 ```
 
 ### Клавиатура и мышь
@@ -391,4 +396,26 @@ log(secToYears(secondsDiff))
 var pos = findColor("#ff002a", 1)
 log(pos)
 moveTo(pos.x, pos.y, 0)
+```
+```js
+// Сохраняем скриншот
+saveScreen("C:/1.png")
+saveScreen("C:/1.bmp")
+saveScreen("C:/1.jpg")
+// Поддерживаются и другие форматы. Пробуйте.
+```
+```js
+// Создание нового файла с текстом
+cmd("echo xlartas > C:/newfile.txt")
+
+// Создание новой папки
+cmd("mkdir C:/newfolder")
+
+// Удаление файла
+cmd("del C:/newfile.txt")
+
+// Удаление папки
+cmd("rmdir /Q /S C:/newfolder")
+
+// И любые другие консольные команды...
 ```
