@@ -1,13 +1,23 @@
 # xLMacros docs
 
+- [Общее](#Общее)
 - [Синтаксис](https://github.com/ChaiScript/ChaiScript/blob/develop/cheatsheet.md#language-reference)
 - [Функции](#Функции)
   - [Разное](#Разное)
   - [Клавиатура и мышь](#Клавиатура-и-мышь)
   - [Ожидание](#Ожидание)
   - [Поиск на экране](#Поиск-на-экране)
-- [Список клавиш](#Список-клавиш)
 - [Примеры скриптов](#Примеры-скриптов)
+- [Список клавиш](#Список-клавиш)
+
+## Общее
+### **[Скачать последнюю версию](https://xlartas.ru/shop/product_program/xLMACROS/)**
+Программа в _**Beta**_, поэтому пока что бесплатна.<br>
+Все баги, ошибки проблемы, просьба скидвать в **_[лс](https://t.me/artasov)_**.
+<br>
+<br>
+Для работы требуется наличие `opencv_world480.dll` рядом с `.exe`
+> Этот файл уже есть в архиве при скачивании.
 
 ## Функции
 
@@ -220,6 +230,101 @@ findColor(color: str, accuracy: float) -> Point(x, y)
     accuracy: уровень точности поиска цвета 0.00 <= accuracy <= 1.00
 ```
 
+
+## Примеры скриптов
+
+```js
+// Привет, я комментарий.
+// Так мы будет объявлять переменные. 
+// var значит, что у тебя короткий.
+var ure_iq = 20 
+// Или, что мы объявляем переменную.
+// А так мы можем их переопредe.лять...
+ure_iq = 30 * 2 / 4 + 38 * (666 * 999)
+// Так мы залогируем переменную в журнал.
+log(ure_iq)
+// Отнимаем от самого себя.
+ure_iq -= 999 * 999
+
+var a = 666
+var success = "success"
+var warning = "warning"
+if(3 <= 4){
+   a = 4
+   while(0 != a){
+      // Эта функция проигрывает предустановленный звук.
+      // Все функции перечислены в гайде.
+      // Название берется из переменной success,
+      // которую мы объявили ранее.
+      sound(success)
+      // Двигаем курсор на 875 пикселей
+      // в лево пошагово в течении 400ms.
+      // Для меня это было 90 градусов в игре :)
+      moveRelS(0, 1000, 15, 1400)
+      // Клик ЛКМ
+      LMBClick()
+      // Уменьшаем 'a' на 1.
+      a -= 1
+   } 
+} else {
+   sound(warning)
+}
+// Супер! А теперь иди читай доку...
+```
+```js
+// Пользуемся датами
+// Date init
+var date1 = Date("1971-07-21 00:00:00")
+log("Созданная дата: " + date1.toString())
+// Date now
+var date2 = Date()
+log("Сейчас: " + date2.toString())
+// Date increasing & decreasing
+var date3 = date2.iDays(5).iHours(3).iMinutes(30).dSeconds(5);
+log("Посчитанная дата: "+date3.toString())
+// Difference of dates
+var secondsDiff = date2 - date1;
+log(addStrNum("Разница: ", secondsDiff))
+// Parse Seconds to Years => double
+log(secToYears(secondsDiff))
+
+```
+```js
+// Ищем цвет на экране
+var pos = findColor("#ff002a", 1)
+log(pos)
+moveTo(pos.x, pos.y, 0)
+```
+```js
+// Ищем картинки и используем найденную позицию
+var images_path = "C:/Users/xL/AppData/Roaming/xLMACROS/images/"
+var pos = findImageC(images_path + "1.png", 0.9)
+clickTo("LB", pos.x, pos.y)
+```
+```js
+// Сохраняем скриншот
+saveScreen("C:/1.png")
+saveScreen("C:/1.bmp")
+saveScreen("C:/1.jpg")
+// Поддерживаются и другие форматы. Пробуйте.
+```
+```js
+// Создание нового файла с текстом
+cmd("echo xlartas > C:/newfile.txt")
+
+// Создание новой папки
+cmd("mkdir C:/newfolder")
+
+// Удаление файла
+cmd("del C:/newfile.txt")
+
+// Удаление папки
+cmd("rmdir /Q /S C:/newfolder")
+
+// И любые другие консольные команды...
+```
+
+
 ## Список клавиш
 ```js
 'ESC': 27
@@ -331,91 +436,4 @@ findColor(color: str, accuracy: float) -> Point(x, y)
 'X1': 5
 'X2': 6
 '~': 192
-```
-
-## Примеры скриптов
-
-```js
-// Привет, я комментарий.
-// Так мы будет объявлять переменные. 
-// var значит, что у тебя короткий.
-var ure_iq = 20 
-// Или, что мы объявляем переменную.
-// А так мы можем их переопредe.лять...
-ure_iq = 30 * 2 / 4 + 38 * (666 * 999)
-// Так мы залогируем переменную в журнал.
-log(ure_iq)
-// Отнимаем от самого себя.
-ure_iq -= 999 * 999
-
-var a = 666
-var success = "success"
-var warning = "warning"
-if(3 <= 4){
-   a = 4
-   while(0 != a){
-      // Эта функция проигрывает предустановленный звук.
-      // Все функции перечислены в гайде.
-      // Название берется из переменной success,
-      // которую мы объявили ранее.
-      sound(success)
-      // Двигаем курсор на 875 пикселей
-      // в лево пошагово в течении 400ms.
-      // Для меня это было 90 градусов в игре :)
-      moveRelS(0, 1000, 15, 1400)
-      // Клик ЛКМ
-      LMBClick()
-      // Уменьшаем 'a' на 1.
-      a -= 1
-   } 
-} else {
-   sound(warning)
-}
-// Супер! А теперь иди читай доку...
-```
-```js
-// Пользуемся датами
-// Date init
-var date1 = Date("1971-07-21 00:00:00")
-log("Созданная дата: " + date1.toString())
-// Date now
-var date2 = Date()
-log("Сейчас: " + date2.toString())
-// Date increasing & decreasing
-var date3 = date2.iDays(5).iHours(3).iMinutes(30).dSeconds(5);
-log("Посчитанная дата: "+date3.toString())
-// Difference of dates
-var secondsDiff = date2 - date1;
-log(addStrNum("Разница: ", secondsDiff))
-// Parse Seconds to Years => double
-log(secToYears(secondsDiff))
-
-```
-```js
-// Ищем цвет на экране
-var pos = findColor("#ff002a", 1)
-log(pos)
-moveTo(pos.x, pos.y, 0)
-```
-```js
-// Сохраняем скриншот
-saveScreen("C:/1.png")
-saveScreen("C:/1.bmp")
-saveScreen("C:/1.jpg")
-// Поддерживаются и другие форматы. Пробуйте.
-```
-```js
-// Создание нового файла с текстом
-cmd("echo xlartas > C:/newfile.txt")
-
-// Создание новой папки
-cmd("mkdir C:/newfolder")
-
-// Удаление файла
-cmd("del C:/newfile.txt")
-
-// Удаление папки
-cmd("rmdir /Q /S C:/newfolder")
-
-// И любые другие консольные команды...
 ```
